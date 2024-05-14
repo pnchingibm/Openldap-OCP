@@ -20,7 +20,8 @@ oc patch svc openldap -p '{"spec": {"type": "NodePort", "ports": [{"port": 1389,
 ```
 
 To test the LDAP server, you will need to find the cluster api server
-```oc cluster-info
+```
+oc cluster-info
 ```
 
 The Default LDAP passowrd is: adminpassword
