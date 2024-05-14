@@ -15,7 +15,7 @@ oc adm policy add-scc-to-user anyuid -z default
 
 The openldap pod should be running without any errors. If you need to access the LDAP server outside of the cluster, you can create a Nodeport on the service.
 
-'''
+```
 oc patch svc openldap -p '{"spec": {"type": "NodePort", "ports": [{"port": 1389, "targetPort": 1389, "nodePort": 31389}]}}'
 ```
 
