@@ -35,7 +35,7 @@ You can either use the openldap pod terminal from OpenShift Console or rsh to th
 oc get pods
 oc rsh <openldap_pod>
 ```
-Use following code to create the ldif file.
+Use following code to create the ldif file. If you are adding users for IBM RPA, the username needs to be the user name for the Owner (defined in ower secret in your RPA namespace)
 ```
 echo "dn: cn=<username>,ou=users,dc=example,dc=org 
 changetype: add
@@ -54,4 +54,8 @@ mail: <YOUR_EMAIL>" >> /tmp/addUser.ldif
 Once the ldif is created, you can add the user to LDAP server by running the following command. 
 ```
 ldapadd -x -D "cn=admin,dc=example,dc=org" -w "adminpassword" -H ldap://localhost:1389 -f addUser.ldif
+```
+You can verify if the user being added by running the following command. 
+```
+ldapsearch -x -H ldap://localhost:389 -b "ou=users,dc=example,dc=org" "(uid=<username>)"
 ```
