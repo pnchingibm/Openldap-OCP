@@ -30,3 +30,23 @@ ldapsearch -x -H ldap://<API Server>:31389 -b "dc=example,dc=org" -D "cn=admin,d
 ```
 
 Once all are verified. You can add users to the LDAP server. The user will need to be added using a ldif file. 
+You can either use the openldap pod terminal from OpenShift Console or rsh to the pod from your machine. 
+```
+oc get pods
+oc rsh <openldap_pod>
+```
+Use following code to create the ldif file.
+echo "dn: cn=<username>,ou=users,dc=example,dc=org 
+changetype: add
+cn: <username>
+sn: Bar2
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+userpassword: rpapassw0rd
+uid: <username>
+uidNumber: 1004
+gidNumber: 1004
+homeDirectory: /home/<username>
+mail: <YOUR_EMAIL>" >> /tmp/addUser.ldif
+```
