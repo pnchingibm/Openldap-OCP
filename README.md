@@ -36,6 +36,7 @@ oc get pods
 oc rsh <openldap_pod>
 ```
 Use following code to create the ldif file.
+```
 echo "dn: cn=<username>,ou=users,dc=example,dc=org 
 changetype: add
 cn: <username>
