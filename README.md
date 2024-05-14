@@ -51,3 +51,7 @@ gidNumber: 1004
 homeDirectory: /home/<username>
 mail: <YOUR_EMAIL>" >> /tmp/addUser.ldif
 ```
+Once the ldif is created, you can add the user to LDAP server by running the following command. 
+```
+ldapadd -x -D "cn=admin,dc=example,dc=org" -w "adminpassword" -H ldap://localhost:1389 -f addUser.ldif
+```
