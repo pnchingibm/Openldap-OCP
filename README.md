@@ -2,8 +2,8 @@
 Setting up OpenLDAP on OpenShift
 
 
-oc new-project openldap
-oc adm policy add-scc-to-user anyuid system:serviceaccount:openldap:default
+'''oc new-project openldap
+oc adm policy add-scc-to-user anyuid system:serviceaccount:openldap:default'''
 or
 oc adm policy add-scc-to-user anyuid -z default
 
