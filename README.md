@@ -67,7 +67,7 @@ ldapadd -x -D "cn=admin,dc=example,dc=org" -w "adminpassword" -H ldap://localhos
 ```
 You can verify if the user being added by running the following command. 
 ```
-ldapsearch -x -H ldap://localhost:389 -b "ou=users,dc=example,dc=org" "(uid=<username>)"
+ldapsearch -x -H ldap://localhost:1389 -b "ou=users,dc=example,dc=org" "(uid=<username>)"
 
-ldapsearch -x -H ldap://localhost:389 -b "ou=users,dc=example,dc=org"
+ldapsearch -x -H ldap://localhost:1389 -b "ou=users,dc=example,dc=org"
 ```
